@@ -22,10 +22,6 @@ jobs:
             ${{ runner.os }}-gems-
       
       - uses: helaili/jekyll-action@2.0.1
-        with:
-          pre_build_commands: |
-            date > fred.html
-            apk --update add imagemagick
         env:
           JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
 
