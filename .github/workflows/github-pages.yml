@@ -16,14 +16,15 @@ jobs:
       # Use GitHub Actions' cache to shorten build times and decrease load on servers
       - uses: actions/cache@v1
         with:
-          pre_build_commands:
-            date > fred.html
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
           restore-keys: |
             ${{ runner.os }}-gems-
       
       - uses: helaili/jekyll-action@2.0.1
+        with:
+          pre_build_commands:
+            date > fred.html
         env:
           JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
 
